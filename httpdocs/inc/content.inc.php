@@ -1,22 +1,22 @@
-<?php
+<?php 
 // content.inc.php
 
 if (isset($_GET["view"])){
 	$view = $_GET["view"];
 	switch ($view){
-		case "blog":
-			require_once './view/blog.view.php';
+		case "add":
+			require_once './view/add.view.php';
 			break;
-		case "write":
-			require_once './view/write.view.php';
+		case "checkout":
+			require_once './view/checkout.view.php';
 			break;
-    case "profile":
-        require_once './view/profile.view.php';
-        break;
-    case "login":
-        require_once './view/login.view.php';
-        break;
-		default:
+        case "cart":
+            require_once './view/cart.view.php';
+            break;
+        case "login":
+            require_once './view/login.view.php';
+            break;
+		default: 
 			require_once './view/default.view.php' ;
 	}
 } else {

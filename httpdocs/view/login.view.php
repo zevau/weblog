@@ -20,35 +20,17 @@ if (isset($_POST["login"])){
     }
 }
 ?>
-
-
 <div id="blog">
   <div class="post">
-    <div class="post-title">
       <?php
-      $result = $db->query("SELECT title FROM post WHERE username = 'first_user'");
-      while($title = $result->fetch_assoc()){
-        echo $title["title"];
-      }
-      ?>
-    </div>
+      $result = $db->query("SELECT * FROM post ORDER BY post_date DESC LIMIT 10");
+      while($row = $result->fetch_assoc()) {
 
-    <div class="post-content">
-      <?php
-      $result = $db->query("SELECT content FROM post WHERE username = 'first_user'");
-      while($content = $result->fetch_assoc()){
-        echo $content["content"];
+        echo "<div class=\"post-title\">". $row["TITLE"] ."</div>";
+        echo "<div class=\"post-content\">". $row["CONTENT"] ."</div>";
+        echo "<div class=\"post-info\">". $row["USERNAME"] ."</div>";
       }
       ?>
-    </div>
-    <div class="post-info">
-      <?php
-      $result = $db->query("SELECT username FROM post WHERE username = 'first_user'");
-      while($author = $result->fetch_assoc()){
-        echo "author: " . $author["username"];
-      }
-      ?>
-    </div>
   </div>
 </div>
 
