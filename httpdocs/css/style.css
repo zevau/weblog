@@ -1,6 +1,9 @@
 #login {
     margin-top:120px;
 }
+.product{
+    padding-bottom:20px;
+}
 .debug {
     border:1px dashed red;
 }

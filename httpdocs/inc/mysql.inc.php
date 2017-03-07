@@ -1,8 +1,8 @@
 <?php
-    $dbuser = "abx427";
-    $dbpass = "abx427";
+    $dbuser = "root";
+    $dbpass = "dbroot";
     $dbname = "abx427_prg";
-    $dbhost = "pstud0.mt.haw-hamburg.de";
+    $dbhost = "localhost";
 
     $db = new mysqli($dbhost,$dbuser,$dbpass);
     $db->select_db($dbname);
