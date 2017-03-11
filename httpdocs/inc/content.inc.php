@@ -1,4 +1,4 @@
-<?php 
+<?php
 // content.inc.php
 
 if (isset($_GET["view"])){
@@ -10,13 +10,13 @@ if (isset($_GET["view"])){
 		case "checkout":
 			require_once './view/checkout.view.php';
 			break;
-        case "cart":
-            require_once './view/cart.view.php';
+        case "draft":
+            require_once './view/draft.view.php';
             break;
         case "login":
             require_once './view/login.view.php';
             break;
-		default: 
+		default:
 			require_once './view/default.view.php' ;
 	}
 } else {

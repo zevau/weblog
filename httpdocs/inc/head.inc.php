@@ -19,5 +19,3 @@
     <![endif]-->
   </head>
   <body>
-
-

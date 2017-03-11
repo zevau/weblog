@@ -8,7 +8,7 @@ if(isset($_GET["action"]) && $_GET["action"] == "logout"){
 }
 if (isset($_POST["login"])){
     $username = $db->real_escape_string($_POST["username"]);
-    $pass = $_POST["password"];
+    $password = $_POST["password"];
     $password = md5($password);
     $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
     $result = $db->query($query);
@@ -20,19 +20,6 @@ if (isset($_POST["login"])){
     }
 }
 ?>
-<div id="blog">
-  <div class="post">
-      <?php
-      $result = $db->query("SELECT * FROM post ORDER BY post_date DESC LIMIT 10");
-      while($row = $result->fetch_assoc()) {
-
-        echo "<div class=\"post-title\">". $row["TITLE"] ."</div>";
-        echo "<div class=\"post-content\">". $row["CONTENT"] ."</div>";
-        echo "<div class=\"post-info\">". $row["USERNAME"] ."</div>";
-      }
-      ?>
-  </div>
-</div>
 
     <div class="container">
       <div id="login">

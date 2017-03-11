@@ -1,14 +1,14 @@
+
 <?php
     $dbuser = "root";
     $dbpass = "dbroot";
     $dbname = "abx427_prg";
     $dbhost = "localhost";
 
-    $db = new mysqli($dbhost,$dbuser,$dbpass);
-    $db->select_db($dbname);
-
-    if (isset($db->connect_error)){
-        echo $db->connect_error;
+    $db = new mysqli($dbhost,$dbuser,$dbpass, $dbname);
+    if ($db->connect_errno) {
+        die("Verbindung fehlgeschlagen: " . $db->connect_error);
     }
+    $dbq = new DBQuery($db);
     session_start();
 ?>
