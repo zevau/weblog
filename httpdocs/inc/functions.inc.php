@@ -1,21 +1,25 @@
 <?php function drawPosts($dataset)
 {
+  while($row = $dataset->fetch_array()){
 ?>
 <div class="post-container">
   <div class="post-title">
+    Title:
     <?php
-    echo $dataset["TITLE"]; ?>
+    echo $row["TITLE"]; ?>
   </div>
   <div class="post-content">
+    Content:
     <?php
-    echo $dataset["CONTENT"];?>
+    echo $row["CONTENT"];?>
   </div>
   <div class="post-info">
+    Info:
     <?php
-    echo $dataset["POST_ID"];
-    echo $dataset["USERNAME"];
-    echo $dataset["POST_DATE"];
+    echo $row["POST_ID"];
+    echo $row["USERNAME"];
+    echo $row["POST_DATE"];
     ?>
   </div>
 </div>
-<?php }?>
+<?php }}?>

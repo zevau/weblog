@@ -2,14 +2,16 @@
 class DB {
 
   public static $database = null;
-  private static $dbuser = "root";
-  private static $dbpass = "dbroot";
-  private static $dbname = "abx427_prg";
-  private static $dbhost = "localhost";
 
   function __construct() {
-    $database = new mysqli($dbhost,$dbuser,$dbpass, $dbname);
-    if ($database->connect_errno) {
+
+    $dbhost = "localhost";
+    $dbuser = "root";
+    $dbpass = "dbroot";
+    $dbname = "abx427_prg";
+
+    self::$database = new mysqli($dbhost,$dbuser,$dbpass, $dbname);
+    if (self::$database->connect_errno) {
         die("Verbindung fehlgeschlagen: " . $database->connect_error);
     }
     session_start();
@@ -20,18 +22,19 @@ class DB {
   *
   */
   public function getLatestPosts($start = 0, $range = 10) {
-    $sql = "SELECT * FROM post ORDER BY post_date DESC LIMIT '$start', '$range'";
-    $result = $db->query($sql);
+    $sql = "SELECT * FROM post ORDER BY post_date DESC LIMIT $start, $range";
+    echo $sql;
+    $result = self::$database->query($sql);
     return $result;
   }
   public function searchByUsername($string, $direction = "DESC"){
     $sql = "SELECT * FROM post WHERE username LIKE '$string' ORDER BY post_date '$direction'";
-    $result = $db->query($sql);
+    $result = self::$database->query($sql);
     return $result;
   }
   public function newPost($title, $text, $author){
     $sql = "INSERT INTO post (title, content, username) VALUES ($title, $text, $author)";
-    $db->query($sql);
+    self::$database->query($sql);
   }
   public function deletePost($id){
 

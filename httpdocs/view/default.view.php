@@ -4,8 +4,7 @@
 *    header('Location: /?view=login');
 *  }
 */
-  drawPosts($dbq->getLatestPosts());
+  drawPosts($db->getLatestPosts());
 ?>
 <div class = "container">
-default
 </div>
