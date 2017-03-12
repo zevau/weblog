@@ -7,15 +7,12 @@ if (isset($_GET["view"])){
 		case "search":
 			require_once './view/search.view.php';
 			break;
-    case "draft":
-      require_once './view/draft.view.php';
-      break;
-  	case "login":
-      require_once './view/login.view.php';
-      break;
-		case "register":
-			require_once './view/register.view.php';
-			break;
+        case "draft":
+            require_once './view/draft.view.php';
+            break;
+        case "login":
+            require_once './view/login.view.php';
+            break;
 		default:
 			require_once './view/default.view.php' ;
 	}

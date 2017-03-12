@@ -21,14 +21,16 @@
         <ul class="pull-right">
             <?php
             if (!isset($_SESSION["loggedIn"])){
-                echo("<li>
-                        <a href='?view=login'>Login</a>
-                      </li>");
+              ?>
+                <li><a href='?view=register'>Register</a></li>
+                <li><a href='?view=login'>Login</a></li>
+            <?php
             }else{
-                echo ("<li>
-                         <a href='?view=login&action=logout'>Logout</a>
-                       </li>");
-            }
+              ?>
+                <li>  <a href='?view=login&action=logout'>Logout</a></li>
+              <?php
+
+              }
             ?>
         </ul>
     </div>

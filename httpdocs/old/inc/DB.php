@@ -26,6 +26,11 @@ class DB {
     $result = self::$database->query($sql);
     return $result;
   }
+  public function searchByUsername($string, $direction = "DESC"){
+    $sql = "SELECT * FROM post WHERE username LIKE '$string' ORDER BY post_date '$direction'";
+    $result = self::$database->query($sql);
+    return $result;
+  }
   public function newPost($title, $text, $author){
     $sql = "INSERT INTO post (TITLE, CONTENT, USERNAME) VALUES ('$title', '$text', '$author')";
     self::$database->query($sql);
@@ -47,9 +52,28 @@ class DB {
         header('Location: /');
     }
   }
-  public function register($username, $password){
-    $sql = "INSERT INTO user (USERNAME, PASSWORD) VALUES ('$username', '$password')";
-    self::$database->query($sql);
+  public function searchPost($string, $titleonly = false, $direction = "DESC"){
+    $sql = "SELECT * FROM post WHERE TITLE LIKE %'$string'%";
+    if(!titleonly){
+      $sql .= " OR CONTENT LIKE %'$string'%";
+    }
+    $sql .=" ORDER BY post_date '$direction'";
+    $result = self::$database->query($sql);
+    return $result;
+  }
+  public function searchPostByAuthor($string, $titleonly = false, $author, $direction = "DESC"){
+    $sql = "SELECT * FROM post WHERE TITLE LIKE %'$string'%";
+    if(!titleonly){
+      $sql .= " OR CONTENT LIKE %'$string'%";
+    }
+    $sql .=" AND USERNAME = '$author' ORDER BY post_date '$direction'";
+    $result = self::$database->query($sql);
+    return $result;
+  }
+  public function searchByAuthor($author, $direction = "DESC"){
+    $sql = "SELECT * FROM post WHERE username LIKE '$author' ORDER BY post_date '$direction'";
+    $result = self::$database->query($sql);
+    return $result;
   }
   public function search($string, $titleonly, $author, $direction){
     $sql = "SELECT * FROM post";
