@@ -4,11 +4,8 @@
 if (isset($_GET["view"])){
 	$view = $_GET["view"];
 	switch ($view){
-		case "add":
-			require_once './view/add.view.php';
-			break;
-		case "checkout":
-			require_once './view/checkout.view.php';
+		case "search":
+			require_once './view/search.view.php';
 			break;
         case "draft":
             require_once './view/draft.view.php';
