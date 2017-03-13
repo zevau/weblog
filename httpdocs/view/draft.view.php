@@ -1,4 +1,6 @@
 <?php
+
+$pagetitle .= " - Write something";
 if(!$_SESSION["loggedIn"]){
   header('Location: /?view=login');
 }

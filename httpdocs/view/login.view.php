@@ -2,6 +2,7 @@
 <?php
     // login.view.php
 
+$pagetitle .= " - Login";
 if(isset($_GET["action"]) && $_GET["action"] == "logout"){
     session_destroy();
     header('Location: /');
@@ -10,7 +11,12 @@ if (isset($_POST["login"])){
     $username = $db->real_escape_string($_POST["username"]);
     $password = $_POST["password"];
     $password = md5($password);
-    $db->login($username, $password);
+    if ($db->login($username, $password)){
+        echo "Login successful!";
+    } else {
+        echo "You have entered either a wrong username or password. Please try again.
+        ";
+    }
 }
 ?>
 

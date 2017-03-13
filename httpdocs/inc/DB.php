@@ -26,6 +26,11 @@ class DB {
     $result = self::$database->query($sql);
     return $result;
   }
+  public function getUserPosts($username) {
+    $sql = "SELECT * FROM post WHERE USERNAME = '$username' ORDER BY post_date DESC";
+    $result = self::$database->query($sql);
+    return $result;
+  }
   public function newPost($title, $text, $author){
     $sql = "INSERT INTO post (TITLE, CONTENT, USERNAME) VALUES ('$title', '$text', '$author')";
     self::$database->query($sql);
@@ -41,10 +46,14 @@ class DB {
     $sql = "SELECT * FROM user WHERE USERNAME = '$username' AND PASSWORD = '$password'";
     $result = self::$database->query($sql);
     if ($result->num_rows > 0){
-        $user = $result->fetch_assoc();
-        $_SESSION["username"] = $username;
-        $_SESSION["loggedIn"] = true;
-        header('Location: /');
+      $user = $result->fetch_assoc();
+      $_SESSION["username"] = $username;
+      $_SESSION["loggedIn"] = true;
+      header('Location: /');
+      return TRUE;
+    }
+    else {
+      return FALSE;
     }
   }
   public function register($username, $password){
@@ -69,8 +78,20 @@ class DB {
       $sql .= " WHERE USERNAME = '$author'";
     }
     $sql .=" ORDER BY post_date $direction";
-    echo $sql;
     $result = self::$database->query($sql);
+    return $result;
+  }
+  /**
+  *@return FALSE if username does not exist in database, TRUE if exists
+  */
+  public function usernameExists($username){
+    $sql = "SELECT * FROM user WHERE USERNAME = '$username'";
+    $result = self::$database->query($sql);
+    if ($result->num_rows > 0){
+      $result = TRUE;
+    } else {
+      $result = FALSE;
+    }
     return $result;
   }
 }

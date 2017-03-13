@@ -1,25 +1,3 @@
-<?php
-if (isset($_POST["search"])){
-  echo "döt";
-  if (empty($_POST["search-box"]) && empty($_POST["author-box"])){
-    echo "missing input";
-  } else {
-
-      echo "döt";
-    $string = $db->real_escape_string($_POST["search-box"]);
-    $author = $db->real_escape_string($_POST["author-box"]);
-    
-    $titleonly = isset($_POST["title-only"]);
-    $direction = "DESC";
-    if (isset($_POST["oldest-first"])){
-      $direction = "ASC";
-    }
-    echo $string . $titleonly. $author .$direction;
-    $result = $db->search($string, $titleonly, $author, $direction);
-    drawPosts($result);
-  }
-}
-?>
 <div class="container">
   <div id="search">
     <table>
@@ -35,3 +13,27 @@ if (isset($_POST["search"])){
     </table>
   </div>
 </div>
+
+<?php
+
+$pagetitle .= " - Search";
+
+if (isset($_POST["search"])){
+  if (empty($_POST["search-box"]) && empty($_POST["author-box"])){
+    echo "missing input";
+  } else {
+    $string = $db->real_escape_string($_POST["search-box"]);
+    $author = $db->real_escape_string($_POST["author-box"]);
+
+    $titleonly = isset($_POST["title-only"]);
+    $direction = "DESC";
+    if (isset($_POST["oldest-first"])){
+      $direction = "ASC";
+    }
+    echo "<h1>Suchergebnisse:</h1>";
+    $pagetitle .= "results";
+    $result = $db->search($string, $titleonly, $author, $direction);
+    drawPosts($result);
+  }
+}
+?>

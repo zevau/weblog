@@ -1,19 +1,33 @@
 
 <?php
-    // register.view.php
-if (isset($_POST["register"])){
-    if($_POST["password"] == $_POST["password_repeat"]){
-      $username = $db->real_escape_string($_POST["username"]);
-      $password = $_POST["password"];
-      $password = md5($password);
-      $db->register($username, $password);
-      header('Location: /?view=login');
-    }
-    else {
-      echo "entered passwords are not equal!";
-    }
 
-}
+$pagetitle .= " - Register";
+    // register.view.php
+    $errorMsg = "";
+  if (isset($_POST["register"])){
+      if (!$db->usernameExists($_POST["username"])){
+        if($_POST["password"] == $_POST["password_repeat"]){
+          $username = $db->real_escape_string($_POST["username"]);
+          $password = $_POST["password"];
+          $password = md5($password);
+          $db->register($username, $password);
+          header('Location: /?view=login');
+        }
+        else {
+          $errorMsg .= "Entered passwords were not equal! Please enter again. ";
+        }
+      }
+      else {
+        $errorMsg .= "Username '" . $_POST["username"] . "' does already exist! Please select a different one.";
+      }
+      ?>
+    <div class ="error-msg">
+      <?php
+        echo $errorMsg;
+      ?>
+    </div>
+      <?php
+  }
 ?>
 
 <div class="container">
