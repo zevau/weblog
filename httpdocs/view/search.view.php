@@ -2,12 +2,12 @@
   <div id="search">
     <table>
       <form class="search-form" action="" method="post">
-          <tr><td><label id="search-label" for="search-box" >SUCHE</label></td></tr>
+          <tr><td><label id="search-label" for="search-box" >SEARCH</label></td></tr>
           <tr><td><input type="text" name="search-box" placeholder="..."></td></tr>
-          <tr><td><input type="checkbox" name="title-only" >nur Titel durchsuchen</td></tr>
-          <tr><td><label id="author-label" for="author-box" >AUTOR</label></td></tr>
+          <tr><td><input type="checkbox" name="title-only" >only titles</td></tr>
+          <tr><td><label id="author-label" for="author-box" >AUTHOR</label></td></tr>
           <tr><td><input type="text" name="author-box" placeholder="alle Nutzer"></td></tr>
-          <tr><td><input type="checkbox" name="oldest-first" >älteste Beiträge zuerst</td></tr>
+          <tr><td><input type="checkbox" name="oldest-first" >oldest posts first</td></tr>
           <tr><td><input type="submit" name="search" value="suche"></td></tr>
       </form>
     </table>
@@ -30,7 +30,7 @@ if (isset($_POST["search"])){
     if (isset($_POST["oldest-first"])){
       $direction = "ASC";
     }
-    echo "<h1>Suchergebnisse:</h1>";
+    echo "<h1>Results:</h1>";
     $pagetitle .= "results";
     $result = $db->search($string, $titleonly, $author, $direction);
     drawPosts($result);

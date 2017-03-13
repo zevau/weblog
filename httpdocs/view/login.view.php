@@ -12,10 +12,11 @@ if (isset($_POST["login"])){
     $password = $_POST["password"];
     $password = md5($password);
     if ($db->login($username, $password)){
-        echo "Login successful!";
+      setNotification("Success!");
+      header('Location: /');
     } else {
-        echo "You have entered either a wrong username or password. Please try again.
-        ";
+      setError("You have entered either a wrong username or password. Please try again.");
+      header('Location: /?view=login');
     }
 }
 ?>
@@ -25,7 +26,7 @@ if (isset($_POST["login"])){
       <form class="login-form" action="" method="post">
           <input type="username" name="username" placeholder="username">
           <input type="password" name="password" placeholder="password">
-          <input type="submit" name="login" value="anmelden">
+          <input type="submit" name="login" value="login">
       </form>
   </div>
 </div>

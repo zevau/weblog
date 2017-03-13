@@ -1,17 +1,10 @@
 <?php
 // content.inc.php
-if (isset($_SESSION["loggedIn"])){
-	?>
-<div id="logged-in-as">Logged in as <a href='?view=profile&user=
-	<?php
-		echo $_SESSION["username"];
-	?>
-'>
-	<?php
-		echo $_SESSION["username"];
-	?>
-</a></div>
-	<?php
+if (isset($_POST["delete-post"])){
+	$postID = $_POST["post-id"];
+	$db->deletePost($postID);
+	setNotification("Post #" . $postID . " has been deleted.");
+	header('Location: /?view='.$_GET["view"]);
 }
 if (isset($_GET["view"])){
 	$view = $_GET["view"];

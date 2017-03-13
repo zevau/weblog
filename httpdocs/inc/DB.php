@@ -36,7 +36,8 @@ class DB {
     self::$database->query($sql);
   }
   public function deletePost($id){
-
+    $sql = "DELETE FROM post WHERE POST_ID = '$id'";
+    self::$database->query($sql);
   }
   public function real_escape_string($string){
     $result = self::$database->real_escape_string($string);
