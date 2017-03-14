@@ -11,18 +11,18 @@ function drawPosts($data)
 <div class="post-container">
   <table class="post-table">
     <tr class="post-title">
-      <td>
+      <td><p>
         <?php
           echo $row["TITLE"];
         ?>
-      </td>
+      </td></p>
     </tr>
     <tr class="post-content">
-      <td>
+      <td><p>
         <?php
           echo $row["CONTENT"];
         ?>
-      </td>
+      </td></p>
     </tr>
     <tr class="post-info">
       <td>
@@ -48,10 +48,10 @@ function drawPosts($data)
           <?php
 if(isset($_SESSION["username"])){
           if(($_SESSION["username"] == $row["USERNAME"]) || ($_SESSION["username"] == "admin")){?>
-          <td class="post-info">
+          <td class="post-info-delete">
             <form class="delete-post" method="post">
               <input type="hidden" name="post-id" value="<?php echo $row["POST_ID"];?>">
-              <input class="delete-button" type="submit" name="delete-post" value="X">
+              <input class="delete-button button" type="submit" name="delete-post" value="X">
             </form>
           </td>
           <?php }} ?>

@@ -23,17 +23,17 @@ if (isset($_POST["publish"])){
       <table>
         <tr>
           <td>
-            <input type="text" size="40" name="title" placeholder="Title" maxlength="50">
+            <input type="text" size="40" name="title" placeholder="Title" maxlength="50" required>
           </td>
         </tr>
         <tr>
           <td>
-            <textarea cols="40" rows="20" name="text" placeholder="Enter Text ..." maxlength="1000"></textarea>
+            <textarea cols="40" rows="20" name="text" placeholder="Enter Text ..." maxlength="1000" required></textarea>
           </td>
         </tr>
         <tr>
           <td>
-            <input type="submit" name="publish" value="publish">
+            <input class="button" type="submit" name="publish" value="publish">
           </td>
         </tr>
       </form>

@@ -39,7 +39,12 @@ justify-content: space-between;
 background-color: #eeeeee;
 width: 100%;
 }
-
+input, table, textarea{
+  width: 100%;
+}
+.button, .checkbox {
+  width: auto;
+}
 .info-table tr{
   display: flex;
   flex-direction: row;
@@ -48,8 +53,9 @@ width: 100%;
 }
 tbody{
   width: 100%;
-} tr, td{
+} tr, td, td p{
   width: inherit;
+  word-break: break-all;
 }
 .navbar-container ul, .navbar-container div{
   margin: 10px;
@@ -78,11 +84,20 @@ tr.post-title, tr.post-content, tr.post-info{
   font-size: large;
   font-weight: bold;
 }
+.post-info-delete{
+  width: auto;
+}
 td.post-info-id{
   width: 15%;
 }
 td.post-info-timestamp{
   text-align: right;
+}
+.notification-msg{
+  background-color: rgba(0, 255, 0, 0.1);
+}
+.error-msg{
+  background-color: rgba(255, 0, 0, 0.2);
 }
 #logged-in-as{
   margin-right: 20px;

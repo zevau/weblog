@@ -1,10 +1,12 @@
 <?php
 // content.inc.php
 if (isset($_POST["delete-post"])){
-	$postID = $_POST["post-id"];
-	$db->deletePost($postID);
-	setNotification("Post #" . $postID . " has been deleted.");
-	header('Location: /?view='.$_GET["view"]);
+	if ($db->validateAuthor($_POST["post-id"], $_SESSION["username"]) || $_SESSION["username"] == "admin" ){
+		$postID = $_POST["post-id"];
+		$db->deletePost($postID);
+		setNotification("Post #" . $postID . " has been deleted.");
+		header('Location: /?view='.$_GET["view"]);
+	}
 }
 if (isset($_GET["view"])){
 	$view = $_GET["view"];

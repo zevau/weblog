@@ -12,7 +12,7 @@ if ($db->getTotalPostCount() > $range){
 ?>
 <div class="button-row">
   <form method="post">
-    <input type="submit" name="load-more" value="Load more ...">
+    <input class="button" type="submit" name="load-more" value="Load more ...">
     <input type="hidden" name="range" value=<?php echo $range ?>>
   </form>
 </div>

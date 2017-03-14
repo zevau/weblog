@@ -4,11 +4,11 @@
       <form class="search-form" action="" method="post">
           <tr><td><label id="search-label" for="search-box" >SEARCH</label></td></tr>
           <tr><td><input type="text" name="search-box" placeholder="..."></td></tr>
-          <tr><td><input type="checkbox" name="title-only" >only titles</td></tr>
+          <tr><td><input class="checkbox" type="checkbox" name="title-only" >only titles</td></tr>
           <tr><td><label id="author-label" for="author-box" >AUTHOR</label></td></tr>
           <tr><td><input type="text" name="author-box" placeholder="alle Nutzer"></td></tr>
-          <tr><td><input type="checkbox" name="oldest-first" >oldest posts first</td></tr>
-          <tr><td><input type="submit" name="search" value="suche"></td></tr>
+          <tr><td><input class="checkbox" type="checkbox" name="oldest-first" >oldest posts first</td></tr>
+          <tr><td><input class="button" type="submit" name="search" value="suche"></td></tr>
       </form>
     </table>
   </div>

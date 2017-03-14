@@ -99,5 +99,15 @@ class DB {
     }
     return $result;
   }
+  public function validateAuthor($id, $author){
+    $sql = "SELECT * FROM post WHERE USERNAME = '$author' AND POST_ID = '$id'";
+    $result = self::$database->query($sql);
+    if ($result->num_rows > 0){
+      $result = TRUE;
+    } else {
+      $result = FALSE;
+    }
+    return $result;
+  }
 }
 ?>
