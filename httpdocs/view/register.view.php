@@ -4,11 +4,12 @@
 $pagetitle .= " - Register";
     // register.view.php
   if (isset($_POST["register"])){
+      $regex = "/^\w{1,35}$/";
       if ($db->usernameExists($_POST["username"])){
         setError("Username '" . $_POST["username"] . "' does already exist! Please select a different one.");
-      } elseif(!strcmp("^\w{1,35}$", $_POST["username"])) {
+      } elseif(!preg_match($regex, $_POST["username"])) {
         setError("Illegal Character: Only alphanumeric characters and underscores are allowed for usernames.");
-      } elseif(!$_POST["password"] == $_POST["password_repeat"]){
+      } elseif(!($_POST["password"] == $_POST["password_repeat"])){
         setError("Entered passwords were not equal! Please enter again.");
       }
       if (!isset($_SESSION["error"])){

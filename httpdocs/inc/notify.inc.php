@@ -25,18 +25,4 @@ if (isset($_SESSION["notification"])){
   <?php
   unsetNotification();
 }
-//shows username, that is logged in
-if (isset($_SESSION["loggedIn"])){
-?>
-<div id="logged-in-as">
-  <p>Logged in as
-    <a href='?view=profile&user=<?php echo $_SESSION["username"];?>'>
-	   <?php
-	   echo $_SESSION["username"];
-	   ?>
-    </a>
-  </p>
-</div>
-	<?php
-  }
 ?>

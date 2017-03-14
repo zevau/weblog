@@ -28,10 +28,10 @@ if (isset($_GET["view"])){
 			require_once './view/profile.view.php';
 			break;
 		default:
-			require_once './view/default.view.php' ;
+			require_once './view/blog.view.php' ;
 	}
 } else {
-	require_once './view/default.view.php';
+	require_once './view/blog.view.php';
 }
 
 ?>

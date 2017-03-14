@@ -7,7 +7,9 @@ if(!$_SESSION["loggedIn"]){
 }
 if (isset($_POST["publish"])){
   $title = $db->real_escape_string($_POST["title"]);
+  $title = htmlspecialchars($title);
   $text = $db->real_escape_string($_POST["text"]);
+  $text = htmlspecialchars($text);
   $author = $_SESSION["username"];
   $db->newPost($title, $text, $author);
   setNotification("Your posting has been published!");

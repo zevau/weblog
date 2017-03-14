@@ -12,7 +12,7 @@ if (isset($_POST["login"])){
     $password = $_POST["password"];
     $password = md5($password);
     if ($db->login($username, $password)){
-      setNotification("Success!");
+      setNotification("Successfully logged in! Welcome " . $username . "!");
       header('Location: /');
     } else {
       setError("You have entered either a wrong username or password. Please try again.");

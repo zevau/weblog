@@ -5,10 +5,7 @@ class DB {
 
   function __construct() {
 
-    $dbhost = "localhost";
-    $dbuser = "root";
-    $dbpass = "dbroot";
-    $dbname = "abx427_prg";
+    require_once './inc/mysql.inc.php';
 
     self::$database = new mysqli($dbhost,$dbuser,$dbpass, $dbname);
     if (self::$database->connect_errno) {
@@ -21,7 +18,14 @@ class DB {
   *@param int $range number of posts to retrieve
   *
   */
-  public function getLatestPosts($start = 0, $range = 10) {
+  public function getTotalPostCount(){
+    $sql = "SELECT COUNT(*) AS amount FROM post";
+    $result = self::$database->query($sql);
+    $result = $result->fetch_array();
+    $result = $result["amount"];
+    return $result;
+  }
+  public function getLatestPosts($start, $range) {
     $sql = "SELECT * FROM post ORDER BY post_date DESC LIMIT $start, $range";
     $result = self::$database->query($sql);
     return $result;

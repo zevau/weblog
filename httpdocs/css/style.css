@@ -6,3 +6,87 @@
 .debug {
     border:1px dashed red;
 }
+.navbar ul li{
+  display: inline;
+}
+.navbar a{
+  text-decoration: none;
+}
+.navbar ul {
+  padding-left: 0px;
+}
+.pull-right {
+  float: right;
+  right: 0%;
+}
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.post-container{
+  margin: 20px;
+}
+.container{
+  margin: 20px;
+}
+.post-table {
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between;
+
+background-color: #eeeeee;
+width: 100%;
+}
+
+.info-table tr{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+tbody{
+  width: 100%;
+} tr, td{
+  width: inherit;
+}
+.navbar-container ul, .navbar-container div{
+  margin: 10px;
+}
+.navbar-content {
+  position: relative;
+}
+.navbar-header{
+  padding-left: 10px;
+  display: inline;
+}
+body {
+  margin: auto;
+  max-width: 768px;
+}
+div.navbar-container{
+}
+.info-table{
+  width: inherit;
+}
+tr.post-title, tr.post-content, tr.post-info{
+  box-shadow: 0 1px 0 #000;
+  border: 1px solid black;
+}
+.post-title td{
+  font-size: large;
+  font-weight: bold;
+}
+td.post-info-id{
+  width: 15%;
+}
+td.post-info-timestamp{
+  text-align: right;
+}
+#logged-in-as{
+  margin-right: 20px;
+}
+#nav-links li, .pull-right li{
+  margin: 10px;
+}
