@@ -66,7 +66,7 @@ return $rows;
 }
 /**
 *functions for (un)setting errors and notifications
-*
+*@param String $msg message
 */
 function setError($msg){
   $_SESSION["error"] = $msg;

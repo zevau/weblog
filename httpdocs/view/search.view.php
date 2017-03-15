@@ -1,4 +1,6 @@
 <div class="container">
+  <p>Search for anything:</p>
+  <!-- search form-->
   <div id="search">
     <table>
       <form class="search-form" action="" method="post">
@@ -8,7 +10,7 @@
           <tr><td><label id="author-label" for="author-box" >AUTHOR</label></td></tr>
           <tr><td><input type="text" name="author-box" placeholder="alle Nutzer"></td></tr>
           <tr><td><input class="checkbox" type="checkbox" name="oldest-first" >oldest posts first</td></tr>
-          <tr><td><input class="button" type="submit" name="search" value="suche"></td></tr>
+          <tr><td><input class="button" type="submit" name="search" value="search"></td></tr>
       </form>
     </table>
   </div>
@@ -17,7 +19,7 @@
 <?php
 
 $pagetitle .= " - Search";
-
+//search for strings, check the input
 if (isset($_POST["search"])){
   if (empty($_POST["search-box"]) && empty($_POST["author-box"])){
     echo "missing input";

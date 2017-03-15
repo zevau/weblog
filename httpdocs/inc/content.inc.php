@@ -1,5 +1,6 @@
 <?php
 // content.inc.php
+// deleting a post, validate the author
 if (isset($_POST["delete-post"])){
 	if ($db->validateAuthor($_POST["post-id"], $_SESSION["username"]) || $_SESSION["username"] == "admin" ){
 		$postID = $_POST["post-id"];
@@ -8,6 +9,7 @@ if (isset($_POST["delete-post"])){
 		header('Location: /?view='.$_GET["view"]);
 	}
 }
+//redirects to the views
 if (isset($_GET["view"])){
 	$view = $_GET["view"];
 	switch ($view){

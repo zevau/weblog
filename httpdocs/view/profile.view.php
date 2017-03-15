@@ -1,4 +1,5 @@
 <?php
+//not much done here, display user's posts
 $username = $_GET["user"];
 $pagetitle .= " - User profile of " . $username;
 if(isset($username) && $db->usernameExists($username)){
@@ -9,3 +10,6 @@ if(isset($username) && $db->usernameExists($username)){
 }
 
 ?>
+<div class="container">
+<p>User profile of <?php echo $username ?></p>
+</div>

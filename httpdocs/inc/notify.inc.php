@@ -1,5 +1,5 @@
 <?php
-//shows error messages
+//shows error messages and clears afterwards
 if (isset($_SESSION["error"])){
   ?>
 <div class="error-msg">
@@ -12,7 +12,7 @@ if (isset($_SESSION["error"])){
   <?php
   unsetError();
 }
-//shows notification
+//shows notification and clears afterwards
 if (isset($_SESSION["notification"])){
   ?>
 <div class="notification-msg">

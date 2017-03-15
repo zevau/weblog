@@ -1,10 +1,12 @@
 <?php
 
 $pagetitle .= " - Write something";
+//redirects to login if user isn't
 if(!$_SESSION["loggedIn"]){
   setNotification("Please log in first!");
   header('Location: /?view=login');
 }
+//cleans the input and publishes
 if (isset($_POST["publish"])){
   $title = $db->real_escape_string($_POST["title"]);
   $title = htmlspecialchars($title);
@@ -18,6 +20,7 @@ if (isset($_POST["publish"])){
 ?>
 
 <div class="container">
+  <p>Write something:</p>
   <div id="draft">
     <form class="draft-form" action="" method="post">
       <table>

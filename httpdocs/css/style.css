@@ -24,9 +24,16 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  background-color: rgba(0, 0, 255, 0.1);
 }
 .post-container{
   margin: 20px;
+}
+.navbar-brand{
+    font-size: larger;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
 }
 .container{
   margin: 20px;
@@ -39,8 +46,12 @@ justify-content: space-between;
 background-color: #eeeeee;
 width: 100%;
 }
-input, table, textarea{
+table{
   width: 100%;
+}
+input, textarea{
+  width: 100%;
+  margin: 5px;
 }
 .button, .checkbox {
   width: auto;
